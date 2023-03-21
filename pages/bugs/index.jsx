@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import BugsTable from "../../components/BugsTable";
+import BugsTable from "../../components/bugs/BugsTable";
+import Bug from "@/components/bugs/Bug";
+import DashboardStats from "@/components/DashboardStats";
+import Navigation from "@/components/Navigation";
 
 function Bugs() {
   useEffect(() => {
@@ -14,9 +17,10 @@ function Bugs() {
     };
     getBugs();
   }, []);
+  const BugWithNavigation = Navigation(Bug);
   return (
-    <div style={{ height: "100%" }}>
-      <BugsTable />
+    <div style={{ height: "100%", display: "flex" }}>
+      <BugWithNavigation />
     </div>
   );
 }
